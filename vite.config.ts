@@ -7,11 +7,12 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(__dirname, "src"), // alias for src
     },
   },
   build: {
-    outDir: "dist",
-    assetsDir: "assets",
+    outDir: "dist",     // default for Vercel build output
+    assetsDir: "assets" // assets folder
   },
+  base: "./", // IMPORTANT: ensures relative paths (fixes /src/main.tsx issue on Vercel)
 });
